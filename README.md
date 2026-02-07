@@ -35,7 +35,7 @@ Follow these steps to install the extension manually :
 1. Download or clone this repository
 2. Extract the folder
 3. Open Google Chrome
-4. Go to: chrome://extensions
+4. Go to : chrome : //extensions
 5. Enable Developer Mode
 6. Click on "Load Unpacked"
 7. Select the project folder
