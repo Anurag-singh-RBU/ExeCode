@@ -8,7 +8,7 @@ This project is built for learning and research purposes , focusing on browser a
 ## Features
 
 - Automatically detects Google Forms
-- Reads MCQ, short answer and paragraph questions
+- Reads MCQ , short answer and paragraph questions
 - Sends questions to an AI backend for processing
 - Generates intelligent answers using LLMs
 - Displays answers in the browser console and popup
