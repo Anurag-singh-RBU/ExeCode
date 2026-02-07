@@ -44,19 +44,6 @@ The extension will now be installed.
 
 ---
 
-## How to Use
-
-1. Open any Google Form
-2. Press F12 to open Developer Tools
-3. Open the Console tab
-4. Reload the page
-5. The extension will automatically :
-   - Detect questions
-   - Generate AI answers
-   - Display them in the console
-
----
-
 ## Important Notes
 
 - This extension works in preview mode by default
