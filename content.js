@@ -1,5 +1,4 @@
 console.log("Form404 Loaded");
-chrome.storage.local.set({ answers: [] });
 
 waitForForm();
 
@@ -52,7 +51,6 @@ async function startAuto(){
   for(const q of questions){
 
     const mcq = await solveMCQ(q);
-
     if(!mcq){
       await solveParagraph(q);
     }
