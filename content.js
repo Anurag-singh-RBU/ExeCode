@@ -122,23 +122,14 @@ async function solveMCQ(box){
   const options = [];
 
   optionEls.forEach(opt => {
-
-    const label =
-      opt.querySelector(".AB7Lab.Id5V1");
-
-    let text = "";
-
-    if(label){
-      text = label.innerText.trim();
-    }
-
-    options.push(text);
+        options.push(opt.getAttribute("aria-label").trim());
   });
 
   const answer =
     (await getAI(question, options)).trim();
 
   console.log("Question :", question);
+  console.log("Options: ", options);
   console.log("AI :", answer);
 
   saveAnswer(question, answer);
