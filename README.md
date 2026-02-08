@@ -11,8 +11,8 @@ This project is built for learning and research purposes , focusing on browser a
 - Reads MCQ , short answer and paragraph questions
 - Sends questions to an AI backend for processing
 - Generates intelligent answers using LLMs
-- Displays answers in the browser console and popup
-- Prevents automatic option selection
+- Automically selects them in Google Forms
+- Prevents manual form filling
 - Works in real time
 
 ---
