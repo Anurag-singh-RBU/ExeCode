@@ -1,7 +1,5 @@
 console.log("Form404 Loaded");
 
-// ================= WAIT FOR FORM =================
-
 waitForForm();
 
 function waitForForm(){
@@ -27,8 +25,6 @@ function waitForForm(){
   });
 }
 
-// ================= CLEAR DEFAULT =================
-
 function clearAllSelections(){
 
   const radios =
@@ -43,8 +39,6 @@ function clearAllSelections(){
   console.log("Default selections cleared");
 }
 
-// ================= MAIN =================
-
 async function startAuto(){
 
   console.log("Form404 started");
@@ -56,10 +50,7 @@ async function startAuto(){
 
   for(const q of questions){
 
-    // Try MCQ
     const mcq = await solveMCQ(q);
-
-    // Try Paragraph / Short
     if(!mcq){
       await solveParagraph(q);
     }
@@ -67,8 +58,6 @@ async function startAuto(){
 
   console.log("Form404 done");
 }
-
-// ================= AI =================
 
 async function getAI(question, options){
 
@@ -90,8 +79,6 @@ async function getAI(question, options){
 
   return data.answer;
 }
-
-// ================= MCQ =================
 
 async function solveMCQ(box){
 
@@ -127,11 +114,8 @@ async function solveMCQ(box){
   console.log("Question :", question);
   console.log("AI :", answer);
 
-  // ❌ No clicking (Preview Mode)
   return true;
 }
-
-// ================= PARAGRAPH / SHORT =================
 
 async function solveParagraph(box){
 
@@ -154,7 +138,6 @@ async function solveParagraph(box){
 
   console.log("AI :", answer);
 
-  // Fill text
   input.value = answer;
 
   input.dispatchEvent(
@@ -163,8 +146,6 @@ async function solveParagraph(box){
 
   return true;
 }
-
-// ================= BLOCK AUTO SELECT =================
 
 document.addEventListener("click", e => {
 
