@@ -1,137 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
+  <title>Form404</title>
 
-  <title>AutoGForm</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Hanken Grotesk Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-
-    * {
+    *{
       box-sizing: border-box;
-      font-family: 'Hanken Grotesk', sans-serif;
+      font-family: "Hanken Grotesk", sans-serif;
     }
 
-    body {
-      width: 300px;
-      padding: 15px;
+    body{
+      width: 320px;
+      padding: 14px;
       background: #f9fafb;
-      margin: 0;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 15px;
       color: #111827;
-      font-weight: 800;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 15px;
-    }
-
-    .field {
-      margin-bottom: 10px;
-    }
-
-    label {
-      font-size: 12px;
-      font-weight: 500;
-      color: #374151;
-      margin-bottom: 3px;
-      display: block;
-    }
-
-    input {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 6px;
-      border: 1px solid #d1d5db;
-      outline: none;
-      font-size: 13px;
-      transition: 0.2s;
-    }
-
-    input:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
-    }
-
-    button {
-      width: 100%;
-      padding: 9px;
-      margin-top: 10px;
-      background: #2563eb;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #1d4ed8;
-    }
-
-    .footer {
+    h3{
       text-align: center;
-      font-size: 11px;
-      margin-top: 10px;
-      color: #6b7280;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
     }
 
+    .item{
+      border-bottom: 1px solid #e5e7eb;
+      padding: 8px 0;
+    }
+
+    .q{
+      font-size: 12.5px;
+      color: #6b7280;
+      line-height: 1.4;
+      text-align: justify;
+    }
+
+    .a{
+      font-weight: 600;
+      margin: 4px 0;
+      font-size: 13.5px;
+      color: #111827;
+      text-align: justify;
+    }
+
+    .copy{
+      font-size: 11.5px;
+      cursor: pointer;
+      color: #2563eb;
+      font-weight: 500;
+      user-select: none;
+    }
+
+    .copy:hover{
+      text-decoration: underline;
+    }
+
+    .empty{
+      text-align: center;
+      color: #9ca3af;
+      font-size: 13px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 
 <body>
 
-  <h2>AutoGForm</h2>
+  <h3>Form404 Answers</h3>
 
-  <div class="card">
-
-    <div class="field">
-      <label>Name</label>
-      <input id="name" placeholder="Your full name">
-    </div>
-
-    <div class="field">
-      <label>Email</label>
-      <input id="email" placeholder="example@gmail.com">
-    </div>
-
-    <div class="field">
-      <label>Phone</label>
-      <input id="phone" placeholder="9876543210">
-    </div>
-
-    <div class="field">
-      <label>College</label>
-      <input id="college" placeholder="Your college name">
-    </div>
-
-    <div class="field">
-      <label>Branch</label>
-      <input id="branch" placeholder="CSE / IT / AIML">
-    </div>
-
-    <div class="field">
-      <label>Gender</label>
-      <input id="gender" placeholder="Male / Female">
-    </div>
-
-    <button id="save">Save Details</button>
-
-  </div>
-
-  <div class="footer">
-    Smart Google Form Filler ⚡
-  </div>
+  <div id="list"></div>
 
   <script src="popup.js"></script>
 

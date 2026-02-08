@@ -1,6 +1,5 @@
 console.log("Form404 Loaded");
-
-// ================= WAIT FOR FORM =================
+chrome.storage.local.set({ answers: [] });
 
 waitForForm();
 
@@ -27,8 +26,6 @@ function waitForForm(){
   });
 }
 
-// ================= CLEAR DEFAULT =================
-
 function clearAllSelections(){
 
   const radios =
@@ -43,8 +40,6 @@ function clearAllSelections(){
   console.log("Default selections cleared");
 }
 
-// ================= MAIN =================
-
 async function startAuto(){
 
   console.log("Form404 started");
@@ -56,10 +51,8 @@ async function startAuto(){
 
   for(const q of questions){
 
-    // Try MCQ
     const mcq = await solveMCQ(q);
 
-    // Try Paragraph / Short
     if(!mcq){
       await solveParagraph(q);
     }
@@ -68,30 +61,53 @@ async function startAuto(){
   console.log("Form404 done");
 }
 
-// ================= AI =================
-
 async function getAI(question, options){
 
-  const res = await fetch(
-    "http://localhost:3000/api/answer",
-    {
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        question,
-        options
-      })
-    }
-  );
+  try{
 
-  const data = await res.json();
+    const res = await fetch(
+      "https://form404.vercel.app/api/answer",
+      {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          question,
+          options
+        })
+      }
+    );
 
-  return data.answer;
+    const data = await res.json();
+
+    return data.answer || "No answer";
+
+  }catch(err){
+
+    console.log("AI Error:", err);
+
+    return "AI unavailable";
+  }
 }
 
-// ================= MCQ =================
+function saveAnswer(question, answer){
+
+  chrome.storage.local.get(["answers"], data => {
+
+    const list = data.answers || [];
+
+    list.unshift({
+      q: question,
+      a: answer,
+      time: Date.now()
+    });
+
+    chrome.storage.local.set({
+      answers: list.slice(0, 20)
+    });
+  });
+}
 
 async function solveMCQ(box){
 
@@ -127,11 +143,10 @@ async function solveMCQ(box){
   console.log("Question :", question);
   console.log("AI :", answer);
 
-  // ❌ No clicking (Preview Mode)
+  saveAnswer(question, answer);
+
   return true;
 }
-
-// ================= PARAGRAPH / SHORT =================
 
 async function solveParagraph(box){
 
@@ -154,17 +169,16 @@ async function solveParagraph(box){
 
   console.log("AI :", answer);
 
-  // Fill text
   input.value = answer;
 
   input.dispatchEvent(
     new Event("input",{bubbles:true})
   );
 
+  saveAnswer(question, answer);
+
   return true;
 }
-
-// ================= BLOCK AUTO SELECT =================
 
 document.addEventListener("click", e => {
 
