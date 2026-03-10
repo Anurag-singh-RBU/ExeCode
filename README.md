@@ -42,15 +42,7 @@ Follow these steps to install the extension manually :
 
 The extension will now be installed.
 
----
-
-## Important Notes
-
-- This extension works in preview mode by default
-- It does not automatically submit forms
-- Answers are shown for review purposes
-- Internet connection is required
-- Backend must be active for AI responses
+ENJOY 😒😁
 
 
 
